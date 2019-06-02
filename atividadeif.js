@@ -1,6 +1,6 @@
 var idade = 17
 
-if(idade >= 0 && idade < 12) {
+nodeif(idade >= 0 && idade < 12) {
   console.log("criança")
 
 } else if(idade >= 12 && idade < 19) {
