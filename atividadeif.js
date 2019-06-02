@@ -1,15 +1,15 @@
 var idade = 17
 
-if(idade <= 0 && > 12) {
+if(idade >= 0 && idade < 12) {
   console.log("criança")
 
-} if else(idade <= 12 && > 19) {
+} else if(idade >= 12 && idade < 19) {
    console.log("adolescente")
 
-} if else(idade <= 19 && > 41) {
+} else if(idade >= 19 && idade < 41) {
    console.log("adulto")
 
-} if else(idade < 41) {
+} else if(idade >= 41) {
    console.log("velho")
 
 }
