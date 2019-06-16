@@ -1,0 +1,92 @@
+      <html>
+        <head>
+          <meta charset="utf-8"/>
+          <title>Meu quebra-cabeça</title>
+        <style>
+          body {
+              background-color: aqua;
+          }
+            .bloco {
+              width: 45px; 
+              height: 45px;
+              margin: 0;
+              display: table-cell;
+              text-align: center;
+              vertical-align: middle;
+              font-size: 24pt;
+              user-select: none;
+            } 
+
+            .ativo {
+              background-color: blue;  
+            }
+            
+            .inativo {
+              background-color: aliceblue;  
+              color:brown;
+            }
+
+            .painel {
+              display: inline-flex;   
+            }
+            
+            .controles {
+              border-style: solid;
+              width: 395px;
+              padding: 5px;
+              background-color:blueviolet
+            }
+
+            .controles button {
+              border-radius: 10%;
+              background-color: aquamarine;
+              border: none;
+              font-size: 18pt;
+            }
+
+            .tentativas {
+              font-size: 24pt;  
+            }
+
+            .mensagem {
+              font-size: solid;
+              color:brown;  
+            }
+
+            .tabuleiro {
+              border-style: solid;
+              background-color:rgb(226, 129, 230)
+            }
+
+         </style>
+        <head>  
+        <body>
+          <div class="painel">
+            <div class="tabuleiro">
+              <div class="linha">
+                <div id="bloco1" class="bloco">1</div>
+                <div id="bloco2" class="bloco">2</div>
+                <div id="bloco3" class="bloco">3</div>
+              </div>
+              <div class="linha">
+                <div id="bloco4" class="bloco">4</div>
+                <div id="bloco5" class="bloco">5</div>
+                <div id="bloco6" class="bloco">6</div>
+              </div>
+              <div class="linha">
+                <div id="bloco7" class="bloco">7</div>
+                <div id="bloco8" class="bloco">8</div>
+                <div id="bloco9" class="bloco">9</div>
+              </div>
+            </div>
+            <div class="controles">
+              <div class="Tentativas" id="numTentativas">
+                0 tentativas
+              </div>
+              <button type="button">GO</button>
+              <div id="mensagem" id="mensagem"></div>
+            </div>
+          </div>
+        </body>
+      </html>
+
