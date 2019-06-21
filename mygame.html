@@ -7,7 +7,7 @@
               background-color: aqua;
           }
             .bloco {
-              width: 45px; 
+              width: 45px;
               height: 45px;
               margin: 0;
               display: table-cell;
@@ -15,21 +15,21 @@
               vertical-align: middle;
               font-size: 24pt;
               user-select: none;
-            } 
+            }
 
             .ativo {
-              background-color: blue;  
+              background-color: blue;
             }
-            
+
             .inativo {
-              background-color: aliceblue;  
+              background-color: aliceblue;
               color:brown;
             }
 
             .painel {
-              display: inline-flex;   
+              display: inline-flex;
             }
-            
+
             .controles {
               border-style: solid;
               width: 395px;
@@ -45,12 +45,12 @@
             }
 
             .tentativas {
-              font-size: 24pt;  
+              font-size: 24pt;
             }
 
             .mensagem {
               font-size: solid;
-              color:brown;  
+              color:brown;
             }
 
             .tabuleiro {
@@ -59,7 +59,139 @@
             }
 
          </style>
-        <head>  
+
+         <script>
+           var numTentativas = 0;
+           var iniciado = false;
+
+         function iniciar() {
+           for(var i = 1; i <= 9; i++) {
+
+         var bloco = document.getElementById("bloco" +i)
+
+         bloco.classList.remover("ativo");
+         bloco.classList.remover("inativo");
+
+        if(Math.round(Math.random())) {
+           bloco.classList.add("ativo")
+
+          } else {
+           bloco.classList.add("inativo")
+
+         }
+       }
+
+        if(verificarVitoria())) {
+
+          iniciar();
+        }
+
+        numTentativas = -1;
+        incrementarTentativad();
+        iniciar = true;
+        exibirMensagem("")
+     }
+
+      function verificaVitoria() {
+
+        for(var i = 1; i <= 9; i++) {
+
+          var bloco = document.getElementById("bloco"+i);
+          var perdeu = bloco.classList.contains("inativo");
+
+          if(perdeu) {
+
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function mudarBloco(numBloco) {
+        var bloco = document.getElementById("bloco"+numBloco);
+        if(bloco.classList.contains("ativo")) {
+
+          bloco.classList.remove("ativo")
+          bloco.classList.add("inativo")
+        } else if(bloco.classList.contains("inativo")) {
+
+          bloco.classList.remove("inativo")
+          bloco.classList.add("ativo")
+        }
+      }
+
+      function incrementarTentativas() {
+        numTentativas++;
+
+        var tentativas = document.getElementById("numTentativas");
+
+        tentativas.innerHTML = numTentativas + " tentativas";
+      }
+
+      function exibirMensagem(mensagem) {
+
+        var msgDiv = document.getElementById("mensagem");
+
+        msgDiv.innerHTML = mensagem;
+      }
+
+      function jogar(numBloco) {
+        if(!iniciado) return;
+
+        if(numBloco == 1) {
+          mudarBloco(1)
+          mudarBloco(2)
+          mudarBloco(4)
+        } else if( numBloco == 2) {
+          mudarBloco(1)
+          mudarBloco(2)
+          mudarBloco(3)
+          mudarBloco(5)
+        } else if( numBloco == 3) {
+          mudarBloco(2)
+          mudarBloco(3)
+          mudarBloco(6)
+        } else if( numBloco == 4) {
+          mudarBloco(1)
+          mudarBloco(4)
+          mudarBloco(5)
+          mudarBloco(7)
+        } else if( numBloco == 5) {
+          mudarBloco(2)
+          mudarBloco(4)
+          mudarBloco(5)
+          mudarBloco(6)
+          mudarBloco(8)
+        } else if( numBloco == 6) {
+          mudarBloco(3)
+          mudarBloco(5)
+          mudarBloco(6)
+          mudarBloco(9)
+        } else if( numBloco == 7) {
+          mudarBloco(4)
+          mudarBloco(7)
+          mudarBloco(8)
+        } else if( numBloco == 8) {
+          mudarBloco(5)
+          mudarBloco(7)
+          mudarBloco(8)
+          mudarBloco(9)
+        } else if( numBloco == 9) {
+          mudarBloco(6)
+          mudarBloco(8)
+          mudarBloco(9)
+        }
+
+        incrementarTentativas();
+        if(verificaVitoria()) {
+
+          exibirMensagem("Você venceu!!!")
+          iniciado = false;
+        }
+      }
+    </script>
+        <head>
         <body>
           <div class="painel">
             <div class="tabuleiro">
